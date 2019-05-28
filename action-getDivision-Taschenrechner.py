@@ -35,7 +35,6 @@ def action_wrapper(hermes, intent_message):
     current_session_id = intent_message.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 
-
 if __name__ == "__main__":
     mqtt_opts = MqttOptions(username=MQTT_USERNAME, password=MQTT_PASSWORD, broker_address=MQTT_BROKER_ADDRESS)
     with Hermes(mqtt_options=mqtt_opts) as h:
