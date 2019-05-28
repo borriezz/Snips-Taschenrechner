@@ -6,9 +6,9 @@ import toml
 
 
 USERNAME_INTENTS = "domi"
-MQTT_BROKER_ADDRESS = "localhost:1883"
-MQTT_USERNAME = None
-MQTT_PASSWORD = None
+MQTT_BROKER_ADDRESS = "192.168.180.20:1883"
+MQTT_USERNAME = "mqttIO"
+MQTT_PASSWORD = "Heli0s25"
 
 
 def user_intent(intentname):
