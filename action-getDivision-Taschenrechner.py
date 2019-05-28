@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from hermes_python.hermes import Hermes
+from hermes_python.hermes import Hermes,MqttOptions
 
+MQTT_BROKER_ADDRESS = "192.168.180.20:1883"
+MQTT_USERNAME = "mqttIO"
+MQTT_PASSWORD = "Heli0s25"
 
 def action_wrapper(hermes, intent_message):
     first = int(intent_message.slots.firstTerm.first().value)
@@ -25,5 +28,6 @@ def action_wrapper(hermes, intent_message):
 
 
 if __name__ == "__main__":
-    with Hermes("localhost:1883") as h:
+    mqtt_opts = MqttOptions(username=MQTT_USERNAME, password=MQTT_PASSWORD, broker_address=MQTT_BROKER_ADDRESS)
+    with Hermes(mqtt_options=mqtt_opts) as h:
         h.subscribe_intent("domi:getDivision", action_wrapper).start()
